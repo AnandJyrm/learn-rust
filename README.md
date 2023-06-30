@@ -18,7 +18,6 @@ source RUSTENV
 ## Content
 
 1. [hello-world](hello-world)
-2. [formatting](formatting)
 
 ### Warning
 

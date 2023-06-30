@@ -7,3 +7,4 @@ rust-bin
 debug/
 target/
 **/*.rs.bk
+a.out

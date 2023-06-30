@@ -1,8 +1,8 @@
 # Execute in RUSTENV
 
 ```bash
-rustc main.rs
-./main
+rustc hello.rs -o a.out
+./a.out
 ```
 
 ## Output
