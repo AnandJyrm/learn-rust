@@ -21,6 +21,6 @@ source RUSTENV
 
 ### Warning
 
-rust-bin folder contents are part of .gitignore. This contains the installation files
-To reset the repo, use `git clean -Xfd`.
-`git clean -xfd` will reset the rust installation
+- rust-bin folder contents are part of .gitignore. This contains the rust installation files.
+- To reset the repo, use `git clean -Xfd`.
+- `git clean -xfd` will reset the rust installation.
