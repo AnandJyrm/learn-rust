@@ -16,4 +16,8 @@ fn main() {
 
     println!("Debug: {:?}", Structure(3));
     println!("Display: {}", Structure(3));
+
+    #[derive(Debug)]
+    struct AnotherStructure(i32);
+    println!("Debug: {:#?}", AnotherStructure(3));
 }
