@@ -1,6 +1,4 @@
-# Execute in RUSTENV
+# Key Concepts
 
-```bash
-rustc hello.rs -o a.out
-./a.out
-```
+1. traits -> [fmt_trait.rs](fmt_trait.rs)
+2. display -> [formatting.rs](formatting.rs)
