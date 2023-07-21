@@ -9,9 +9,21 @@ deactivate () {
         export PS1
         unset _OLD_VIRTUAL_PS1
     fi
+
+    # restore old protoc env
+    if [ -n "${_OLD_PROTOC}" ] ; then
+        export PROTOC="${_OLD_PROTOC}"
+        unset _OLD_PROTOC
+    fi
     unset -f deactivate
 }
 
 source $PWD/rust-bin/env
+
+# preserve old prompt
 _OLD_VIRTUAL_PS1="${PS1:-}"
 export PS1="(RUSTENV) ${PS1:-}"
+
+# preserve old protoc env
+_OLD_PROTOC="${PROTOC}"
+export PROTOC=/usr/bin/protoc
