@@ -1,0 +1,16 @@
+syntax = "proto3";
+package grpc_clock;
+
+service GrpcClockService {
+    rpc Get(Empty) returns (GrpcClockTime);
+
+    rpc Set(GrpcClockTime) returns (Empty);
+}
+
+message Empty {
+}
+
+message GrpcClockTime {
+    uint32 minute = 1;
+    uint32 second = 2;
+}

@@ -1,9 +1,12 @@
-export RUSTUP_HOME=$PWD/rust-bin
-export CARGO_HOME=$PWD/rust-bin
+export SOURCE_REPO=$PWD
+export RUSTUP_HOME=$SOURCE_REPO/rust-bin
+export CARGO_HOME=$SOURCE_REPO/rust-bin
+
 
 deactivate () {
     unset RUSTUP_HOME
     unset CARGO_HOME
+    unset SOURCE_REPO
     if [ -n "${_OLD_VIRTUAL_PS1:-}" ] ; then
         PS1="${_OLD_VIRTUAL_PS1:-}"
         export PS1
@@ -18,7 +21,7 @@ deactivate () {
     unset -f deactivate
 }
 
-source $PWD/rust-bin/env
+source $SOURCE_REPO/rust-bin/env
 
 # preserve old prompt
 _OLD_VIRTUAL_PS1="${PS1:-}"
