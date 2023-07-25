@@ -51,6 +51,5 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "Current time: {}m {}s",
         current_time.minute, current_time.second
     );
-
     Ok(())
 }
