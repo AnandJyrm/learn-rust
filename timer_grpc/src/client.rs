@@ -1,55 +1,23 @@
-use grpc_clock::grpc_clock_service_client::GrpcClockServiceClient;
-use grpc_clock::{Empty, GrpcClockTime};
-use std::thread::sleep;
-use std::time;
-
-pub mod grpc_clock {
-    tonic::include_proto!("grpc_clock");
-}
+use grpc_lib::{GrpcClockServiceClient, CLNTADDR, convert_arg_to_u32, build_set_request, build_get_request};
+use std::env;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let three_s = time::Duration::from_millis(3000);
-    let mut client = GrpcClockServiceClient::connect("http://127.0.0.1:50051").await?;
-
-    let request = tonic::Request::new(Empty {});
-    let response = client.get(request).await?;
-    let current_time: GrpcClockTime = response.into_inner();
-    println!(
-        "Current time: {}m {}s",
-        current_time.minute, current_time.second
-    );
-
-    println!("zzz ... sleep 3 s");
-    sleep(three_s);
-
-    let request = tonic::Request::new(Empty {});
-    let response = client.get(request).await?;
-    let current_time: GrpcClockTime = response.into_inner();
-    println!(
-        "Current time: {}m {}s",
-        current_time.minute, current_time.second
-    );
-
-    println!("zzz ... sleep 3 s");
-    sleep(three_s);
-
-    let request = tonic::Request::new(GrpcClockTime {
-        minute: 0,
-        second: 0,
-    });
-    let _response = client.set(request).await?;
-    println!("Reset time to 0m 0s");
-
-    println!("zzz ... sleep 3 s");
-    sleep(three_s);
-
-    let request = tonic::Request::new(Empty {});
-    let response = client.get(request).await?;
-    let current_time: GrpcClockTime = response.into_inner();
-    println!(
-        "Current time: {}m {}s",
-        current_time.minute, current_time.second
-    );
+    let mut client = GrpcClockServiceClient::connect(CLNTADDR).await?;
+    let args: Vec<String> = env::args().collect();
+    let _ = match args[1].as_str() {
+        "set" => {
+            let set_minute = convert_arg_to_u32(&args[2]);
+            let set_second = convert_arg_to_u32(&args[3]);
+            let request = build_set_request(set_minute, set_second);
+            let _response = client.set(request).await?;
+        },
+        "get" => {
+            let request = build_get_request();
+            let response = client.get(request).await?;
+            println!("Current time: {}", response.into_inner());
+        },
+        &_ => todo!(),
+    };
     Ok(())
 }
