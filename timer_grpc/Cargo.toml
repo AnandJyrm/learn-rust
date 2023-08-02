@@ -6,9 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "1.0", features = ["full"] }
-rand = "0.6"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
 grpc_lib = { path = "./grpc_lib" }
+log = "0.4"
+env_logger = "0.10"
 
 [[bin]]
 name = "server"

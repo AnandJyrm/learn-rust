@@ -5,6 +5,8 @@ service GrpcClockService {
     rpc Get(Empty) returns (GrpcClockTime);
 
     rpc Set(GrpcClockTime) returns (Empty);
+
+    rpc StreamTime(Empty) returns (stream GrpcClockTime);
 }
 
 message Empty {
