@@ -1,0 +1,10 @@
+[package]
+name = "callback"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gettid = "0.1.2"
+
+[build-dependencies]
+bindgen = "0.66.1"

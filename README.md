@@ -8,6 +8,7 @@ Learn rust basics and some toolchains. Steps are Linux specific.
 1. [hello-world](hello-world)
 2. [macros](macros)
 3. [types](types)
+4. [callback](callback)
 
 ### Tools
 1. [coverage](coverage)
