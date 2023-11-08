@@ -1,10 +1,6 @@
 # learn-rust
 
-Learn rust basics
-
-## Source
-
-- [rust-by-example](https://doc.rust-lang.org/rust-by-example)
+Learn rust basics and some toolchains. Steps are Linux specific.
 
 ## Content
 
@@ -12,13 +8,8 @@ Learn rust basics
 2. [macros](macros)
 3. [types](types)
 
-### Warning
-
-- rust-bin folder contents are part of .gitignore. This contains the rust installation files.
-- To reset the repo, use `git clean -Xfd`.
-- `git clean -xfd` will reset the rust installation.
-
 ## Setup
+Installs Rust locally at learn-rust/bin
 
 ```bash
 git clone git@github.com:AnandJyrm/learn-rust.git
@@ -29,7 +20,24 @@ source RUSTENV
 
 ## Execute in RUSTENV
 
+Direct rustc usage:
+
 ```bash
 rustc hello.rs -o a.out
 ./a.out
 ```
+
+Cargo usage:
+
+```bash
+cargo new hello
+cd hello
+cargo run
+```
+
+### Warning
+
+- bin folder and its contents are part of .gitignore. This will contain the rust installation files.
+- To reset the repo, use `git clean -Xfd`.
+- `git clean -xfd` will reset the rust installation.
+

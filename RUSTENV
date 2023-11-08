@@ -1,32 +1,27 @@
-export SOURCE_REPO=$PWD
-export RUSTUP_HOME=$SOURCE_REPO/rust-bin
-export CARGO_HOME=$SOURCE_REPO/rust-bin
+#! /bin/bash
+
+# find current repo path
+export REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+export RUSTUP_HOME=$REPO/bin
+export CARGO_HOME=$REPO/bin
 
 
 deactivate () {
     unset RUSTUP_HOME
     unset CARGO_HOME
-    unset SOURCE_REPO
+    unset REPO
     if [ -n "${_OLD_VIRTUAL_PS1:-}" ] ; then
         PS1="${_OLD_VIRTUAL_PS1:-}"
         export PS1
         unset _OLD_VIRTUAL_PS1
     fi
 
-    # restore old protoc env
-    if [ -n "${_OLD_PROTOC}" ] ; then
-        export PROTOC="${_OLD_PROTOC}"
-        unset _OLD_PROTOC
-    fi
     unset -f deactivate
 }
 
-source $SOURCE_REPO/rust-bin/env
+source $REPO/bin/env
 
 # preserve old prompt
 _OLD_VIRTUAL_PS1="${PS1:-}"
-export PS1="(RUSTENV) ${PS1:-}"
+export PS1="(rust) ${PS1:-}"
 
-# preserve old protoc env
-_OLD_PROTOC="${PROTOC}"
-export PROTOC=/usr/bin/protoc
