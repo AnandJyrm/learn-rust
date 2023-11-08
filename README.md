@@ -4,9 +4,13 @@ Learn rust basics and some toolchains. Steps are Linux specific.
 
 ## Content
 
+### Basics
 1. [hello-world](hello-world)
 2. [macros](macros)
 3. [types](types)
+
+### Tools
+1. [coverage](coverage)
 
 ## Setup
 Installs Rust locally at learn-rust/bin
