@@ -24,7 +24,9 @@ source "${RUSTUP_HOME}/env"
 rustup update
 # rust-analyzer is the lsp
 rustup component add rust-analyzer
+# llvm-tools is for additional llvm utilities
+rustup component add llvm-tools
 
 # optional tools to expand the macro, generate rpms and create coverage
-cargo install cargo-expand cargo-generate-rpm grcov
+cargo install cargo-expand cargo-generate-rpm grcov cargo-binutils
 

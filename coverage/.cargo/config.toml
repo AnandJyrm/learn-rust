@@ -1,0 +1,4 @@
+[build]
+rustflags = ["-C", "link-args=-Wl,-rpath=C_lib",
+	     "-C", "link-args=-Wl,-rpath-link=C_lib",
+	     "-C", "instrument-coverage",]

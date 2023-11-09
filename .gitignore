@@ -10,4 +10,5 @@ target/
 a.out
 *profraw*
 *profdate*
-*lcov*
+*lcovo*
+bindings_gen.rs

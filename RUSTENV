@@ -5,7 +5,6 @@ export REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 export RUSTUP_HOME=$REPO/bin
 export CARGO_HOME=$REPO/bin
 
-
 deactivate () {
     unset RUSTUP_HOME
     unset CARGO_HOME
