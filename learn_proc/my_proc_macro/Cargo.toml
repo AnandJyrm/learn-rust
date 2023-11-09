@@ -1,9 +1,13 @@
 [package]
-name = "my_tokio_example"
+name = "my_proc_macro"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "1", features = ["full"] }
+quote = "1.0"
+syn = { version = "1.0", features = ["full"] }
+
+[lib]
+proc-macro = true
