@@ -9,9 +9,11 @@ Learn rust basics and some toolchains. Steps are Linux specific.
 2. [macros](macros)
 3. [types](types)
 4. [callback](callback)
+5. [proc_macros](learn_proc)
 
 ### Tools
 1. [coverage](coverage)
+2. [sanitizer](sanitizer)
 
 ## Setup
 Installs Rust locally at learn-rust/bin
