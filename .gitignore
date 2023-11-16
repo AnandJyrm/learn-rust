@@ -11,5 +11,6 @@ target/
 a.out
 *profraw*
 *profdate*
+coverage/bindir
 *lcovo*
 bindings_gen.rs
