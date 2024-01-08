@@ -23,4 +23,4 @@ source $REPO/bin/env
 # preserve old prompt
 _OLD_VIRTUAL_PS1="${PS1:-}"
 export PS1="(rust) ${PS1:-}"
-
+export RUST_TEST_THREADS=1
